@@ -30,3 +30,5 @@ Route::get("/services", 'PagesController@services');
 Route::get("products/{id}/{name}", function ($id, $name) {
     return view("pages.products", compact("id", "name"));
 });
+
+Route::resource('posts', 'PostsController');
