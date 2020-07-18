@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -13,7 +14,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        // $posts = Post::all();
+        // $posts = Post::orderBy('title', 'desc')->take(1)->get(); // how to get single record using take(1)
+        // $posts = Post::orderBy('title', 'desc')->get();
+        // $post = Post::where('title', 'Post Two')->get(); // how to get single record using where clause
+
+        $posts = Post::orderBy('title', 'desc')->paginate(1); // using pagination with 1 page
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
@@ -45,7 +52,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
