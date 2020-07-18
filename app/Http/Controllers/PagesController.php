@@ -6,16 +6,23 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        $title = "This is the Index Page JDR";
+        return view('pages.index', compact('title'));
     }
 
     public function about()
     {
-        return view('pages.about');
+        $title = "About Us";
+        return view('pages.about')->with("title", $title);
     }
 
     public function services()
     {
-        return view('pages.services');
+        $data = [
+            'title' => 'Services Page Title',
+            'content' => 'This is the Services page',
+            'services' => ['Web Dev', 'Programming', 'SEO'],
+        ];
+        return view('pages.services')->with($data);
     }
 }

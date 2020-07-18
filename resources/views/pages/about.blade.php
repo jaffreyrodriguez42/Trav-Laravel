@@ -1,2 +1,6 @@
-<h1>About Page</h1>
-this is the about page
+@extends('layouts.app')
+
+@section('content')
+<h1>{{$title}}</h1>
+<p>This is the about page</p>
+@endsection
