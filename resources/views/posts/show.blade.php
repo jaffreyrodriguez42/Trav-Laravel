@@ -5,7 +5,8 @@
 	<h1>{{ $post->title }}</h1>
 
 	<div>
-		{{ $post->body }}
+		{{-- will parse html--}}
+		{!!$post->body !!} 
 	</div>
 	<hr>
 	<small>Written on {{ $post->created_at }}</small>
